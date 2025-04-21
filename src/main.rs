@@ -72,7 +72,6 @@ fn main() {
         std::process::exit(1);
     });
 
-    msg();
     simple_logger::init_with_level(Level::Info).unwrap();
 
     rayon::ThreadPoolBuilder::new()
@@ -80,7 +79,6 @@ fn main() {
         .build_global()
         .unwrap();
 
-    log::info!("Using {} threads", args.threads);
 
     let start = Instant::now();
     let bmem = max_mem_usage_mb();
@@ -141,8 +139,6 @@ fn main() {
     }
 
     let peak_mem = (max_mem_usage_mb() - bmem).max(0.0);
-    log::info!("Memory usage: {} MB", peak_mem);
-    log::info!("Elapsed: {:.4?} secs", start.elapsed().as_secs_f32())
 }
 
 fn to_gff(
