@@ -203,5 +203,4 @@ pub fn comments(file: &mut Box<dyn Write>) {
     let _ = file.write_all(format!("#provider: {}\n", SOURCE).as_bytes());
     let _ = file.write_all(format!("#version: {}\n", VERSION).as_bytes());
     let _ = file.write_all(format!("#contact: {}\n", REPOSITORY).as_bytes());
-    let _ = file.write_all(format!("#date: {}\n", get_date()).as_bytes());
 }
